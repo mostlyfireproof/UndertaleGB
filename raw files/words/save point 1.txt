@@ -1,0 +1,7 @@
+*(The shadow of the ruins
+  looms above, filling you with
+  determination.)
+
+*(HP fully restored.)
+
+[save]
