@@ -2,8 +2,8 @@
     "settings": {
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 371.20001220703125,
-        "worldScrollY": 0,
+        "worldScrollX": 264.79998779296875,
+        "worldScrollY": 12.800000190734863,
         "zoom": 175,
         "customColorsWhite": "E8F8E0",
         "customColorsLight": "B0F088",
@@ -1634,7 +1634,34 @@
             "y": 30,
             "width": 32,
             "height": 20,
-            "actors": [],
+            "actors": [
+                {
+                    "spriteSheetId": "30b8266a-0533-4f90-bd33-e97dc1d498ea",
+                    "movementType": "static",
+                    "direction": "down",
+                    "moveSpeed": "1",
+                    "animSpeed": "3",
+                    "id": "693edda8-517d-4dda-ab1b-97d90fb33292",
+                    "x": 18,
+                    "y": 12,
+                    "script": [
+                        {
+                            "id": "a2428f1e-66b6-46d6-b321-74a9c6bbfe9f",
+                            "command": "EVENT_TEXT",
+                            "args": {
+                                "text": [
+                                    "$V10$"
+                                ],
+                                "avatarId": ""
+                            }
+                        },
+                        {
+                            "id": "c3a8c5a8-ec94-471f-b584-9143b77ac8eb",
+                            "command": "EVENT_END"
+                        }
+                    ]
+                }
+            ],
             "triggers": [
                 {
                     "id": "2ea92734-f992-49c5-b17d-c6c463ec9627",
@@ -1744,7 +1771,44 @@
                 0,
                 0
             ],
-            "script": []
+            "script": [
+                {
+                    "id": "43f340ae-954b-4dce-b640-192c341b547b",
+                    "command": "EVENT_ACTOR_SET_DIRECTION",
+                    "args": {
+                        "actorId": "player",
+                        "direction": "down"
+                    }
+                },
+                {
+                    "id": "165d2c69-b78f-4080-a331-ca682293af51",
+                    "command": "EVENT_IF_VALUE",
+                    "args": {
+                        "variable": "L0",
+                        "operator": "==",
+                        "comparator": "0",
+                        "__collapseElse": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "id": "2f20a50e-8180-41b2-9509-06e4b8ceff0e",
+                                "command": "EVENT_END"
+                            }
+                        ],
+                        "false": [
+                            {
+                                "id": "8d43bff4-56ef-488e-a835-a85e638a0544",
+                                "command": "EVENT_END"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "57b1f84d-2c14-4265-b754-18b03ad2d5c7",
+                    "command": "EVENT_END"
+                }
+            ]
         },
         {
             "name": "Scene 9",
