@@ -2,8 +2,8 @@
     "settings": {
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 0,
-        "worldScrollY": 9.600000381469727,
+        "worldScrollX": 408.79998779296875,
+        "worldScrollY": 22.399999618530273,
         "zoom": 175,
         "customColorsWhite": "E8F8E0",
         "customColorsLight": "B0F088",
@@ -1464,7 +1464,8 @@
                             "command": "EVENT_IF_FALSE",
                             "args": {
                                 "variable": "L0",
-                                "__collapseElse": false
+                                "__collapseElse": false,
+                                "__disableElse": true
                             },
                             "children": {
                                 "true": [
@@ -1482,11 +1483,13 @@
                                             "text": [
                                                 "* Howdy!\nI'm FLOWEY!",
                                                 "FLOWEY the FLOWER!",
-                                                "* You're new to\nthe UNDERGROUND,\naren'tcha?",
+                                                "* You're new to\nthe UNDERGROUND,",
+                                                "aren'tcha?",
                                                 "* Golly, you must\nbe so confused.",
                                                 "* Someone ought to\nteach you how",
                                                 "things work around\nhere!",
-                                                "* I guess little\nold me will \nhave to do!"
+                                                "* I guess little\nold me",
+                                                "will have to do!"
                                             ]
                                         }
                                     },
@@ -1965,7 +1968,10 @@
                             "command": "EVENT_TEXT",
                             "args": {
                                 "text": [
-                                    "something\ndetermination"
+                                    "*(The shadow of\nthe ruins looms",
+                                    "above, filling\nyou with",
+                                    "determination.)",
+                                    "*(HP fully\nrestored.)"
                                 ],
                                 "avatarId": ""
                             }
