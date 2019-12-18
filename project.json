@@ -2,8 +2,8 @@
     "settings": {
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 357.6000061035156,
-        "worldScrollY": 87.19999694824219,
+        "worldScrollX": 371.20001220703125,
+        "worldScrollY": 0,
         "zoom": 175,
         "customColorsWhite": "E8F8E0",
         "customColorsLight": "B0F088",
@@ -1460,25 +1460,54 @@
                     "trigger": "walk",
                     "script": [
                         {
-                            "id": "96cc9c00-09b4-4f12-9f52-132f105ee7ef",
-                            "command": "EVENT_TEXT",
+                            "id": "f4098468-f2ac-4a16-85e2-cfffd928af72",
+                            "command": "EVENT_IF_TRUE",
                             "args": {
-                                "text": [
-                                    "* Howdy!\n  I'm FLOWEY!",
-                                    "FLOWEY the FLOWER!",
-                                    "* You're new to\n  the UNDERGROUND,\n  aren'tcha?",
-                                    "* Golly, you must\n  be so confused.",
-                                    "* Someone ought to\n  teach you how",
-                                    "things work around\nhere!",
-                                    "* I guess little\n  old me will \n  have to do!"
+                                "variable": "L0",
+                                "__collapseElse": false
+                            },
+                            "children": {
+                                "true": [
+                                    {
+                                        "id": "fa8e886c-4f62-4f22-8a8b-948cd278ecb8",
+                                        "command": "EVENT_SET_TRUE",
+                                        "args": {
+                                            "variable": "L0"
+                                        }
+                                    },
+                                    {
+                                        "id": "96cc9c00-09b4-4f12-9f52-132f105ee7ef",
+                                        "command": "EVENT_TEXT",
+                                        "args": {
+                                            "text": [
+                                                "* Howdy!\nI'm FLOWEY!",
+                                                "FLOWEY the FLOWER!",
+                                                "* You're new to\nthe UNDERGROUND,\naren'tcha?",
+                                                "* Golly, you must\nbe so confused.",
+                                                "* Someone ought to\nteach you how",
+                                                "things work around\nhere!",
+                                                "* I guess little\nold me will \nhave to do!"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "id": "c310f0b6-94b8-465b-9979-d2a688b5066c",
+                                        "command": "EVENT_TEXT",
+                                        "args": {
+                                            "text": "Ready?\nHere we go!"
+                                        }
+                                    },
+                                    {
+                                        "id": "f044803e-e449-49c6-92bc-d27a814d0191",
+                                        "command": "EVENT_END"
+                                    }
+                                ],
+                                "false": [
+                                    {
+                                        "id": "5170392b-8a1c-464f-84e9-7a0ec331fc3f",
+                                        "command": "EVENT_END"
+                                    }
                                 ]
-                            }
-                        },
-                        {
-                            "id": "c310f0b6-94b8-465b-9979-d2a688b5066c",
-                            "command": "EVENT_TEXT",
-                            "args": {
-                                "text": "Ready?\nHere we go!"
                             }
                         },
                         {
@@ -1581,12 +1610,12 @@
                 0,
                 0,
                 0,
-                240,
-                159,
+                0,
+                0,
+                0,
                 255,
-                0,
-                9,
-                0,
+                249,
+                15,
                 144,
                 0,
                 0,
@@ -1756,12 +1785,12 @@
                 0,
                 32,
                 4,
-                0,
-                0,
+                4,
+                16,
                 32,
                 4,
-                0,
-                0,
+                252,
+                31,
                 32,
                 4,
                 0,
@@ -1868,9 +1897,50 @@
                     "name": "save point",
                     "script": [
                         {
-                            "id": "8858e4b4-d1c2-4d11-8d37-4a36a8d7187a",
-                            "command": "EVENT_SAVE_DATA",
-                            "args": {}
+                            "id": "0c6f84de-aaea-4846-b2c7-bd1c8e163693",
+                            "command": "EVENT_TEXT",
+                            "args": {
+                                "text": [
+                                    "something\ndetermination"
+                                ],
+                                "avatarId": ""
+                            }
+                        },
+                        {
+                            "id": "0867c003-2cb2-4e93-bc39-38e6777e0b57",
+                            "command": "EVENT_CHOICE",
+                            "args": {
+                                "variable": "L0",
+                                "trueText": "Save",
+                                "falseText": "Cancel"
+                            }
+                        },
+                        {
+                            "id": "564e8722-3934-43ba-87c4-c17573a7c513",
+                            "command": "EVENT_IF_TRUE",
+                            "args": {
+                                "variable": "L0",
+                                "__collapseElse": false
+                            },
+                            "children": {
+                                "true": [
+                                    {
+                                        "id": "d2337183-90a2-4db5-9e90-1e9763b3f081",
+                                        "command": "EVENT_SAVE_DATA",
+                                        "args": {}
+                                    },
+                                    {
+                                        "id": "fa7e4621-89aa-47be-af79-8846299a11fc",
+                                        "command": "EVENT_END"
+                                    }
+                                ],
+                                "false": [
+                                    {
+                                        "id": "cba54a1d-b573-42d5-a9fb-ee6774151cad",
+                                        "command": "EVENT_END"
+                                    }
+                                ]
+                            }
                         },
                         {
                             "id": "19090b10-2078-4f85-9141-ea99005e18e0",
@@ -1900,6 +1970,14 @@
         {
             "id": "10",
             "name": "toriel alive?"
+        },
+        {
+            "id": "680facb6-dd57-4b3f-b394-af1206e439cc__L0",
+            "name": "save?"
+        },
+        {
+            "id": "7059b3f6-926e-4e6d-9864-fdd93087392d__L0",
+            "name": "read?"
         }
     ],
     "backgrounds": [
@@ -1991,7 +2069,7 @@
             "imageWidth": 256,
             "imageHeight": 256,
             "filename": "ruins 1.png",
-            "_v": 1576626230080
+            "_v": 1576627898015
         },
         {
             "id": "40fda058-df90-4205-a239-fe77bce4fa79",
